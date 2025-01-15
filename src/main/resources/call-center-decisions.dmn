@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_C790EE59-B7B6-4D0D-A4E9-97D9C3D90E85" id="_E9436007-BF5A-4C04-AFC2-551EE66F9FDD" name="DMN_F6832FFB-808C-4334-944F-17D075F78096" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0">
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_C790EE59-B7B6-4D0D-A4E9-97D9C3D90E85" id="_E9436007-BF5A-4C04-AFC2-551EE66F9FDD" name="DMN_F6832FFB-808C-4334-944F-17D075F78096">
   <itemDefinition id="_349FAA23-2276-4CD7-82E2-6A33524C25CB" name="tPhoneNumbers" isCollection="true" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
     <typeRef>tPhoneNumber</typeRef>
   </itemDefinition>
@@ -131,34 +131,6 @@
           <text>// Your annotations here</text>
         </annotationEntry>
       </rule>
-      <rule id="_FF23A39C-68FB-4BF0-8DCD-4751753D595E">
-        <inputEntry id="_2C163896-1985-449A-8F2E-FD865C976616">
-          <text>-</text>
-        </inputEntry>
-        <inputEntry id="_F9D333DA-8B92-499C-B446-DDF38D1D0D77">
-          <text>true</text>
-        </inputEntry>
-        <outputEntry id="_7B164D6C-32BF-4F35-8AC7-34F8CDC2EF76">
-          <text>false</text>
-        </outputEntry>
-        <annotationEntry>
-          <text></text>
-        </annotationEntry>
-      </rule>
-      <rule id="_06FE3467-6F8C-47C2-A2AB-023CFF5EFE5C">
-        <inputEntry id="_004B143A-CEA6-4122-9B0C-FA997DDA5077">
-          <text>false</text>
-        </inputEntry>
-        <inputEntry id="_B3E12BA9-515D-4870-99F4-0A226327AFEA">
-          <text>-</text>
-        </inputEntry>
-        <outputEntry id="_810AB735-0638-4D44-93BA-03DEC76A39C2">
-          <text>false</text>
-        </outputEntry>
-        <annotationEntry>
-          <text></text>
-        </annotationEntry>
-      </rule>
     </decisionTable>
   </decision>
   <decision name="Is Banned" id="_68C49735-B752-4CC6-A2DB-0F18B4201B54">
@@ -234,7 +206,7 @@
         <literalExpression id="_FE3732BB-D5AE-4351-AB68-FE340E4D68BA">
           <text>602000002</text>
         </literalExpression>
-        <literalExpression>
+        <literalExpression id="_DEA4A2AF-5B80-4D8D-BE83-E3087FE9ACAB">
           <text>+420</text>
         </literalExpression>
       </row>
