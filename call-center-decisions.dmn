@@ -49,12 +49,41 @@
     <knowledgeRequirement id="_7A723AAD-61E5-40AE-8CAB-769B27192593">
       <requiredKnowledge href="#_B27EE8BE-BACD-4F17-BA75-D8BA92B55FB4" />
     </knowledgeRequirement>
+    <context id="_E85D4013-EF51-4CCA-91C9-85ACCA480DE3" typeRef="boolean" label="Accept Call">
+      <contextEntry id="_AB51AE06-6A6F-40DF-B0A1-12522147A9AE">
+        <variable id="_CC7022A2-B498-4092-B551-F54C5BCEC213" name="Call can be handled" typeRef="boolean" />
+        <invocation id="_6834BB66-3671-4173-9270-08DE27A123EF" typeRef="boolean" label="Call can be handled">
+          <literalExpression id="_1AC5F8C8-4D02-4697-8428-971F28281959">
+            <text>Can Handle Call</text>
+          </literalExpression>
+          <binding>
+            <parameter id="_06040468-46AB-483E-A940-3F6ED746E859" name="call" typeRef="tCall" />
+            <literalExpression id="_95E3D299-3D2F-4EDB-AD0C-AB74005A94F0" typeRef="tCall" label="call">
+              <text>incoming call</text>
+            </literalExpression>
+          </binding>
+        </invocation>
+      </contextEntry>
+      <contextEntry id="_B072EB28-1089-4CFB-8EE0-287B49531656">
+        <variable id="_C04E14CC-68D8-43AA-940F-DE3BBF8279A6" name="Employee at the Office" typeRef="boolean">
+          <description></description>
+        </variable>
+        <literalExpression id="_C4394A90-35A2-4725-AD50-657CF4EE2FED" typeRef="boolean" label="Employee at the Office">
+          <text>employees[office location = office.location]</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_3D666AF0-DE75-4C33-A85F-77450F12B1C9">
+        <literalExpression id="_F42B7F64-8B92-4B5A-A378-027362709AE0" typeRef="boolean" label="Accept Call">
+          <text>if Call can be handled then count(Employee at the Office) &gt; 0 else false</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
   </decision>
   <inputData name="incoming call" id="_5B58D2EA-F007-4B1E-832B-1109BED008D9">
-    <variable name="incoming call" id="_749B22D0-72D1-4634-A58A-C3F6416C2B81" />
+    <variable name="incoming call" id="_749B22D0-72D1-4634-A58A-C3F6416C2B81" typeRef="tCall" />
   </inputData>
   <inputData name="office" id="_1E59CB51-1B87-4CEB-825A-954FC21DC50F">
-    <variable name="office" id="_F2AF2560-7532-4DB0-8888-E42F77154BCE" />
+    <variable name="office" id="_F2AF2560-7532-4DB0-8888-E42F77154BCE" typeRef="tOffice" />
   </inputData>
   <inputData name="employees" id="_1231C71E-9ABC-4476-B891-50547EA57E49">
     <variable name="employees" id="_178D71B4-9DC5-4248-996E-B6DAD3F8850D" typeRef="tCall" />
@@ -251,6 +280,27 @@
             <kie:width>148</kie:width>
             <kie:width>118</kie:width>
             <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_E85D4013-EF51-4CCA-91C9-85ACCA480DE3">
+            <kie:width>291</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6834BB66-3671-4173-9270-08DE27A123EF">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_36E45ED7-2D41-40B1-956E-12ADEDA56428">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_73B30653-F22F-4989-8CE6-A02B67F49537">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_95E3D299-3D2F-4EDB-AD0C-AB74005A94F0">
+            <kie:width>620</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C4394A90-35A2-4725-AD50-657CF4EE2FED">
+            <kie:width>742</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F42B7F64-8B92-4B5A-A378-027362709AE0">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
