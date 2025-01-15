@@ -46,6 +46,9 @@
     <informationRequirement id="_8B787F21-98FD-41D4-92BC-676D24FB5248">
       <requiredInput href="#_1231C71E-9ABC-4476-B891-50547EA57E49" />
     </informationRequirement>
+    <knowledgeRequirement id="_7A723AAD-61E5-40AE-8CAB-769B27192593">
+      <requiredKnowledge href="#_B27EE8BE-BACD-4F17-BA75-D8BA92B55FB4" />
+    </knowledgeRequirement>
   </decision>
   <inputData name="incoming call" id="_5B58D2EA-F007-4B1E-832B-1109BED008D9">
     <variable name="incoming call" id="_749B22D0-72D1-4634-A58A-C3F6416C2B81" />
@@ -72,6 +75,62 @@
     <informationRequirement id="_80FEEB74-C66E-4E40-8BD4-73ABCBBF8F2E">
       <requiredDecision href="#_BC006A67-B5BA-48F9-8FDD-C6D2A80D0445" />
     </informationRequirement>
+    <decisionTable id="_51540D34-E6DD-4EBA-B393-8D6A6B40F67D" typeRef="boolean" hitPolicy="UNIQUE" label="Call Can Be Handled">
+      <input id="_AF2DF59D-31B4-4DEC-AD56-15B056DADF6B">
+        <inputExpression id="_06ED1392-79A4-463C-9E65-F597006C821A" typeRef="boolean">
+          <text>Is Banned</text>
+        </inputExpression>
+      </input>
+      <input id="_C0ED34FB-6DA7-4B01-85A5-4C4C2E92C294">
+        <inputExpression id="_AEAD9CC5-3AA4-4920-902D-98842CCE80D5" typeRef="boolean">
+          <text>Call Purpose Accepted</text>
+        </inputExpression>
+      </input>
+      <output id="_D4CF09AB-870F-456C-A8EB-38337BF4D8DE" name="Output-1" />
+      <annotation name="Annotations" />
+      <rule id="_74EAAB53-C3EB-46D9-8B09-3D1B6058C59A">
+        <inputEntry id="_53A23367-6D9A-4958-99A3-E46B2B37028C">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="_283EDD93-4A96-469C-B502-231445965803">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="_2A35E29D-54EB-4872-805F-5646CD980F3B">
+          <text>true</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_FF23A39C-68FB-4BF0-8DCD-4751753D595E">
+        <inputEntry id="_2C163896-1985-449A-8F2E-FD865C976616">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_F9D333DA-8B92-499C-B446-DDF38D1D0D77">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="_7B164D6C-32BF-4F35-8AC7-34F8CDC2EF76">
+          <text>false</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+      <rule id="_06FE3467-6F8C-47C2-A2AB-023CFF5EFE5C">
+        <inputEntry id="_004B143A-CEA6-4122-9B0C-FA997DDA5077">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="_B3E12BA9-515D-4870-99F4-0A226327AFEA">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="_810AB735-0638-4D44-93BA-03DEC76A39C2">
+          <text>false</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
   </decision>
   <decision name="Is Banned" id="_68C49735-B752-4CC6-A2DB-0F18B4201B54">
     <variable name="Is Banned" id="_4C9D4A62-AE80-40DE-8912-90CAA4D99BAC" typeRef="boolean" />
@@ -91,6 +150,48 @@
     <informationRequirement id="_93E76827-4E6F-4716-9689-4060BB7B490F">
       <requiredInput href="#_79E8E3E8-A61B-47D4-B78C-30713FC511EC" />
     </informationRequirement>
+    <decisionTable id="_166F1950-1EA4-4AE2-B689-C3300D390BF1" typeRef="boolean" hitPolicy="UNIQUE" label="Call Purpose Accepted">
+      <input id="_4D24B229-A703-465B-9938-4F14760E451D">
+        <inputExpression id="_54211D71-C773-4608-B951-406B6AF23A90" typeRef="tPhoneNumber">
+          <text>call.phone</text>
+        </inputExpression>
+      </input>
+      <input id="_1ED91BD1-C2BE-4B18-A529-948B73DEDBB4">
+        <inputExpression id="_CD9CBA7D-E5E2-4E8E-98C9-CE6DCF571087" typeRef="string">
+          <text>call.purpose</text>
+        </inputExpression>
+      </input>
+      <output id="_42339189-AF13-4E2B-81AD-87FA9B288481" name="Output-1" />
+      <annotation name="Annotations" />
+      <rule id="_CB26E322-FC3B-4EEA-9B1C-9B28DC2939D2">
+        <inputEntry id="_29412EF0-BE04-4E4C-9F42-AE14E2C98CE0">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_88B68E5A-49FD-4151-B248-A95B0018CFBB">
+          <text>&quot;help&quot;</text>
+        </inputEntry>
+        <outputEntry id="_D5A114EF-B442-41D2-8AE1-E28C3C0CD7C1">
+          <text>true</text>
+        </outputEntry>
+        <annotationEntry>
+          <text>// Your annotations here</text>
+        </annotationEntry>
+      </rule>
+      <rule id="_1C4EC39A-A4C7-4C1E-8DE5-1FB84197CCDE">
+        <inputEntry id="_7D4C9D04-0161-46A1-9E4F-3D763FABB07C">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="_5929BE0C-6368-4B53-BAAE-6A021DC874C8">
+          <text>&quot;objection&quot;</text>
+        </inputEntry>
+        <outputEntry id="_C26A126C-E169-4147-8280-0E52F184A262">
+          <text>false</text>
+        </outputEntry>
+        <annotationEntry>
+          <text></text>
+        </annotationEntry>
+      </rule>
+    </decisionTable>
   </decision>
   <inputData name="call" id="_79E8E3E8-A61B-47D4-B78C-30713FC511EC">
     <variable name="call" id="_8EE18838-F2B4-4D90-9627-1E4D402E43EC" typeRef="tCall" />
@@ -136,6 +237,20 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_E5631274-0870-446C-8757-DF4E4BCEC83F">
             <kie:width>557</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_166F1950-1EA4-4AE2-B689-C3300D390BF1">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>209</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_51540D34-E6DD-4EBA-B393-8D6A6B40F67D">
+            <kie:width>60</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>148</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -204,6 +319,10 @@
       <dmndi:DMNEdge id="_601ACDB0-406A-4469-8A9A-D435F9D3B3C8" dmnElementRef="_B53C1D30-74DB-420C-A224-058E35F6495E" sourceElement="_ECFFB0EB-4B2B-4493-941E-63E881774E57" targetElement="_F411BBD6-F45E-4669-B815-30E8033F5C87">
         <di:waypoint x="220" y="180" />
         <di:waypoint x="340" y="180" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_5CEF8EEB-3C08-4845-B872-C5C186035A92" dmnElementRef="_7A723AAD-61E5-40AE-8CAB-769B27192593" sourceElement="_BAB0C5E5-D597-4C68-AD95-91E0AF962A26" targetElement="_EB798DF3-5F27-4D60-B89C-DD9E8E956C43">
+        <di:waypoint x="420" y="100" />
+        <di:waypoint x="1120" y="0" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>
